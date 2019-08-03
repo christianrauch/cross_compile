@@ -14,7 +14,7 @@ ENV TOOL_COMMIT "49719d5"
 # wget -qO- https://github.com/raspberrypi/tools/tarball/49719d5 | tar xz -C /tmp/
 
 # download and install the Raspberry Pi toolchain
-# /opt/raspberrypi-tools-${TOOL_COMMIT}
 RUN apt update && apt-get install -y wget tar
 RUN wget -qO- https://github.com/raspberrypi/tools/tarball/${TOOL_COMMIT} | tar xz -C /opt/
-ENV PATH="/opt/raspberrypi-tools-${TOOL_COMMIT}/arm-bcm2708/arm-linux-gnueabihf/bin:${PATH}"
+#ENV PATH="/opt/raspberrypi-tools-${TOOL_COMMIT}/arm-bcm2708/arm-linux-gnueabihf/bin:${PATH}"
+ENV PATH="/opt/raspberrypi-tools-${TOOL_COMMIT}/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:${PATH}"
