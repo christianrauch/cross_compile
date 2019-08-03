@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script is intended to be used by the Jenkins night builds.
 # But it still possible to use manually setting up this variables:
 #
