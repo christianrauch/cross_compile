@@ -1,0 +1,46 @@
+FROM ros2_cc_base
+
+# ENV TOOL_COMMIT "49719d5"
+
+###### INSTALL RASPBIAN CROSS-COMPILATION REQUIREMENTS
+
+# TODO: install the tools from
+# https://github.com/raspberrypi/tools/archive/master.zip
+# https://github.com/raspberrypi/tools/tarball/master
+# wget -qO- https://github.com/raspberrypi/tools/tarball/master | tar xz - -C /tmp/raspberrypi-tools
+
+# wget -qO- https://github.com/raspberrypi/tools/tarball/49719d5 | tar xz -C /tmp/
+
+# # download and install the Raspberry Pi toolchain
+# RUN apt update && apt install -y wget tar
+# RUN wget -qO- https://github.com/raspberrypi/tools/tarball/${TOOL_COMMIT} | tar xz -C /opt/
+# #ENV PATH="/opt/raspberrypi-tools-${TOOL_COMMIT}/arm-bcm2708/arm-linux-gnueabihf/bin:${PATH}"
+# ENV PATH="/opt/raspberrypi-tools-${TOOL_COMMIT}/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:${PATH}"
+
+
+
+## cross-tool ng
+
+# https://github.com/crosstool-ng/crosstool-ng/archive/crosstool-ng-1.24.0.tar.gz
+
+# wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz
+
+# RUN wget -qO- http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz | tar xz -C /tmp/
+# RUN cd /tmp/crosstool-ng-1.24.0
+# RUN ./configure
+# RUN make install
+
+# install Crosstool-NG
+# RUN apt install -y help2man gawk libtool-bin
+# ENV CTNG_VERSION "1.24.0"
+# RUN wget -qO- http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-${CTNG_VERSION}.tar.xz | tar xz -C /opt/
+# RUN cd /opt/crosstool-ng-${CTNG_VERSION}
+# RUN ./configure --enable-local
+# RUN make
+# # build toolchain for Raspberry Pi 1
+# RUN DEFCONFIG=samples/armv6-rpi-linux-gnueabi/crosstool.config ./ct-ng defconfig
+# RUN ./ct-ng build
+
+# DESTDIR=/opt/ct/... ./ct-ng install
+
+COPY x-tools /opt
